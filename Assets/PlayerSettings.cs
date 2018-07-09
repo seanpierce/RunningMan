@@ -27,9 +27,7 @@ public class PlayerSettings : MonoBehaviour
 
 	void LateUpdate()
 	{
-		transform.position = player.transform.position - player.transform.forward * cameraDistance;
-		transform.LookAt (player.transform.position);
-		transform.position = new Vector3 (transform.position.x, transform.position.y + cameraHeight, transform.position.z);
+		TransformCamera();
 	}
 
 	void UpdateView()
@@ -56,6 +54,13 @@ public class PlayerSettings : MonoBehaviour
 		}
 
 		print(cameraDistance);
+	}
+
+	void TransformCamera()
+	{
+		transform.position = player.transform.position - player.transform.forward * cameraDistance;
+		transform.LookAt (player.transform.position);
+		transform.position = new Vector3 (transform.position.x, transform.position.y + cameraHeight, transform.position.z);
 	}
 }
 
